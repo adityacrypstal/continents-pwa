@@ -1,3 +1,4 @@
+// DB Configurations
 export const DBConfig = {
     name: 'MyDB',
     version: 1,

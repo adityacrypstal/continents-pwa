@@ -16,6 +16,7 @@ const client = new ApolloClient({
 const Countries = () => {
     const history = useHistory();
     const {code} = useParams();
+    //GraphQL Query
     const LIST_COUNTRIES = gql`
   {
     continent(code:"${code}") {

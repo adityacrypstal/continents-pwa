@@ -10,6 +10,7 @@ const client = new ApolloClient({
     uri: 'https://countries.trevorblades.com'
 });
 
+// GraphQL Query
 const LIST_COUNTINENTS = gql`
   {
     continents {
@@ -24,6 +25,7 @@ const Continents = () => {
     const [continents, setContinents] = useState([]);
     useEffect(() => {
         (async () => {
+            // Fetching data from Indexed DB for offline
             let temp = await fromDB.getAll();
             if (temp.length && !navigator.onLine) {
                 setContinents(temp)
@@ -31,8 +33,10 @@ const Continents = () => {
         })()
     }, []);
 
+    // Appliying Query and Fetching Data
     const {data, loading, error} = useQuery(LIST_COUNTINENTS, {client});
     if (!continents.length && data?.continents.length) {
+        // Inserting Data into DB for initial load
         data?.continents?.forEach(async a => await fromDB.add({name: a.name, code: a.code}))
     }
     if (loading) {
