@@ -2,6 +2,7 @@
 
 React PWA using continents graphQL API from [treverblades](https://github.com/trevorblades).
 
+You can see the [demo](https://vigilant-sinoussi-5fe96b.netlify.app/)
 ## Installation
 
 Use the npm package manager to install Continents Web App.
